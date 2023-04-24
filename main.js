@@ -19,4 +19,15 @@ function showUser(obj){
   const childItem = document.createElement("li");
   childItem.textContent = obj.Username + " - " + obj.Email;
   parentItem.append(childItem);
+
+  const deleteButton = document.createElement("input");
+  deleteButton.type = "button";
+  deleteButton.value = "delete";
+
+  deleteButton.onclick = () => {
+    localStorage.removeItem(obj.Username);
+    parentItem.removeChild(childItem);
+  }
+  childItem.appendChild(deleteButton);
+  parentItem.appendChild(childItem);
 }
