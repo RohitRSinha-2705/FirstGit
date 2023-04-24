@@ -28,6 +28,19 @@ function showUser(obj){
     localStorage.removeItem(obj.Username);
     parentItem.removeChild(childItem);
   }
+
+  const editButton = document.createElement("input");
+  editButton.type = "button";
+  editButton.value = "edit";
+
+  editButton.onclick = () => {
+    localStorage.removeItem(obj.Username);
+    parentItem.removeChild(childItem);
+    document.getElementById("User-name").value = obj.Username;
+    document.getElementById("E-mail").value = obj.Email;
+  }
+
   childItem.appendChild(deleteButton);
+  childItem.appendChild(editButton);
   parentItem.appendChild(childItem);
 }
